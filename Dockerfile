@@ -15,6 +15,11 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.vendor="Faucet" \
       org.opencontainers.image.authors="Andrés F. Quintero <afquinteromoreano@gmail.com>"
 
+RUN apt-get update && \
+    apt-get install -y libsodium-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 COPY --from=builder /root/.cargo/bin/faucet /usr/local/bin/faucet
 RUN useradd faucet && \
     mkdir /srv/faucet && \
