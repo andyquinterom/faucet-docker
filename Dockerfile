@@ -16,7 +16,7 @@ LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
       org.opencontainers.image.authors="Andrés F. Quintero <afquinteromoreano@gmail.com>"
 
 RUN apt-get update && \
-    apt-get install -y libsodium-dev && \
+    apt-get install -y libsodium-dev libz-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
